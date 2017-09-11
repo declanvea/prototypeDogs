@@ -24,6 +24,7 @@ const sadie = new Dog({
   hungry: 'not hungry',
   owner: 'mason',
   status: 'normal',
+  // need to insert method named pet to change sadie's status to happy
   function(){
     console.log('');
   }
@@ -51,9 +52,6 @@ function Human (options) {
   this.cool = options.cool;
 }
 
-Human.prototype.humans = function(){
-  console.log();
-}
 // Instances of Human
 // Needed: mason, julia
 const julia = new Human ({
