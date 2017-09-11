@@ -7,38 +7,33 @@
 //            /____/
 
 // Dog Constructor & Prototype
-function Dog (options) {
-  this.name = options.name;
-  this.color = options.color;
-  this.hungry = options.hungry;
-  this.fed = options.fed;
-  this.owner = options.owner;
-  this.status = options.status;
+function Dog ({name, status, color, hungry, owner}) {
+  this.name = name;
+  this.status = status;
+  this.color = color;
+  this.hungry = hungry;
+  this.owner = owner;
 }
 
 // Instances of Dog
 // Needed: sadie, moonshine, atticus
-const sadie = new Dog({
+let sadie = new Dog({
   name: 'sadie',
-  color: 'black',
-  hungry: 'not hungry',
-  owner: 'mason',
   status: 'normal',
-  // need to insert method named pet to change sadie's status to happy
-  function(){
-    console.log('');
-  }
+  color: 'black',
+  hungry: false,
+  owner: 'mason'
 });
-console.log(sadie);
 
-const moonshine = new Dog({
-  pet: 'moonshine',
-  fed: true,
-  hungry: 'not hungry'
+let moonshine = new Dog({
+  name: 'moonshine',
+  hungry: true,
+  owner: undefined
 });
-console.log(moonshine);
 
-
+let atticus = new Dog({
+  owner: undefined
+});
 
 //     __
 //    / /_  __  ______ ___  ____ _____  _____
@@ -47,18 +42,22 @@ console.log(moonshine);
 // /_/ /_/\__,_/_/ /_/ /_/\__,_/_/ /_/____/
 
 // Human Constructor & Prototype
-function Human (options) {
-  this.name = options.name;
-  this.cool = options.cool;
+function Human ({cool}) {
+  this.cool = cool;
+}
+
+Human.prototype.pet = function(dog){
+  dog.status = 'happy';
+}
+Human.prototype.feed = function(dog){
+  dog.hungry = false;
 }
 
 // Instances of Human
 // Needed: mason, julia
-const julia = new Human ({
-  name: 'julia',
-  cool: 'cool'
+let mason = new Human({
+  cool: false
 });
-const mason = new Human ({
-  name: 'mason',
-  cool: 'not cool'
+let julia = new Human({
+  cool: true
 });
